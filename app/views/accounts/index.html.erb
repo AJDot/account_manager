@@ -1,0 +1,26 @@
+<h1>Accounts</h1>
+<div class="row">
+  <div class="table-title col-3-12">
+    Name
+  </div>
+  <div class="table-title col-2-12">
+    Type
+  </div>
+  <div class="table-title col-1-12">
+    Balance
+  </div>
+</div>
+
+<% @accounts.each do |acc| %>
+  <div class="row">
+    <div class="col-3-12">
+      <%= acc.name %>
+    </div>
+    <div class="col-2-12">
+      <%= acc.kind %>
+    </div>
+    <div class="col-1-12">
+      <%= acc.balance %>
+    </div>
+  </div>
+<% end %>
