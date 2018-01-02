@@ -1,0 +1,23 @@
+<%= render 'shared/content_title', title: 'Create New Transaction' %>
+
+<div class="space">
+  <%= link_to "Back to Account", account_path(@account), class: "btn btn-main" %>
+</div>
+
+<%= render 'shared/errors', obj: @transaction %>
+
+<%= form_for [@account, @transaction] do |f| %>
+  <div class="form-field-container">
+    <%= f.label :kind, 'Type' %>
+    <%= f.select(:kind, Transaction::KINDS.map { |k| [k, k.downcase] }, selected: Transaction::KINDS.first.downcase) %>
+  </div>
+  <div class="form-field-container">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="form-field-container">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <%= f.submit 'Create Transaction', class: 'btn btn-main' %>
+<% end %>

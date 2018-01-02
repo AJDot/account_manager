@@ -14,9 +14,11 @@
 ActiveRecord::Schema.define(version: 20171216161214) do
 
   create_table "accounts", force: true do |t|
-    t.string  "name"
-    t.string  "kind"
-    t.integer "balance", default: 0
+    t.string   "name"
+    t.string   "kind"
+    t.integer  "balance",    default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "holder_accounts", force: true do |t|
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171216161214) do
   create_table "transactions", force: true do |t|
     t.string   "kind"
     t.integer  "amount"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "holder_id"

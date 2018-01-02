@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Account.create(name: 'Checking 1', kind: 'checking', balance: 0)
+Transaction.create(kind: 'deposit', amount: 1000, description: 'check', account_id: 1)
+Transaction.create(kind: 'deposit', amount: 2000, description: 'cash', account_id: 1)
+
+Account.create(name: 'Savings 1', kind: 'savings', balance: 0)

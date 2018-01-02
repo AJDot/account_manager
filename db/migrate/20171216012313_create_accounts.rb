@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :name
       t.string :kind
       t.integer :balance, default: 0
+      t.timestamps
     end
   end
 end

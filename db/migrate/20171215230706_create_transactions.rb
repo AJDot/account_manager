@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration
     create_table :transactions do |t|
       t.string :kind
       t.integer :amount
+      t.text :description
       t.timestamps
     end
   end

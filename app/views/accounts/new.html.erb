@@ -1,0 +1,22 @@
+<p class='title'>
+  Create New Account
+</p>
+<hr />
+
+<div class="space">
+  <%= link_to "Back to All Accounts", accounts_path, class: "btn btn-main" %>
+</div>
+
+<%= render 'shared/errors', obj: @account %>
+
+<%= form_for @account do |f| %>
+  <div class="form-field-container">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-field-container">
+    <%= f.label :kind, 'Type' %>
+    <%= f.select(:kind, Account::KINDS.map { |k| [k, k.downcase] }, selected: Account::KINDS.first.downcase) %>
+  </div>
+  <%= f.submit 'Create Account', class: 'btn btn-main' %>
+<% end %>

@@ -1,0 +1,24 @@
+<%= render 'shared/content_title', title: @account.name %>
+
+<div class="space">
+  <%= link_to 'Back to All Accounts', accounts_path, class: 'btn btn-main' %>
+  <%= link_to 'New Transaction', new_account_transaction_path(@account), class: 'btn btn-main' %>
+</div>
+
+
+<h3>Transactions</h3>
+<%= render 'shared/table_headings', headings: {'Type' => 3, 'Description' => 2, 'Amount' => 2} %>
+
+<% @account.transactions.each do |trans| %>
+  <div class="row">
+    <div class="col-3-12">
+      <%= trans.kind %>
+    </div>
+    <div class="col-2-12">
+      <%= trans.description %>
+    </div>
+    <div class="col-2-12">
+      <%= display_dollars(trans.amount) %>
+    </div>
+  </div>
+<% end %>
