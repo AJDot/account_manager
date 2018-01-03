@@ -7,5 +7,5 @@
     <%= f.label :kind, 'Type' %>
     <%= f.select(:kind, Account::KINDS.map { |k| [k, k.downcase] }) %>
   </div>
-  <%= f.submit 'Update Account', class: 'btn btn-main' %>
+  <%= f.submit((account.new_record? ? 'Create' : 'Update') + ' Account' , class: 'btn btn-main') %>
 <% end %>

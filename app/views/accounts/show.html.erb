@@ -18,7 +18,10 @@
       <%= trans.description %>
     </div>
     <div class="col-2-12">
-      <%= display_dollars(trans.amount) %>
+      <%= display_amount(trans.amount) %>
+    </div>
+    <div class="col-1-12">
+      <%= link_to 'Edit', edit_account_transaction_path(@account, trans), class: 'btn' %>
     </div>
   </div>
 <% end %>

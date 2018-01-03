@@ -13,8 +13,24 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Your transaction was created."
       redirect_to account_path(@account)
     else
-      @transaction.amount = params[:transaction][:amount] # reset back to user's input (dollars)
       render :new
+    end
+  end
+
+  def edit
+    @account = Account.find params[:account_id]
+    @transaction = Transaction.find params[:id]
+  end
+
+  def update
+    @account = Account.find params[:account_id]
+    @transaction = Transaction.find params[:id]
+
+    if @transaction.update(transaction_params)
+      flash[:notice] = "Your transaction was successfully updated."
+      redirect_to account_path(@account)
+    else
+      render :edit
     end
   end
 
@@ -22,8 +38,5 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     strong_params = params.require(:transaction).permit(:kind, :amount, :description)
-    # convert from dollar to cents
-    strong_params[:amount] = (strong_params[:amount].to_f * 100).to_i.to_s
-    strong_params
   end
 end
