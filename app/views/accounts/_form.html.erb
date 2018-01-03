@@ -1,0 +1,11 @@
+<%= form_for account do |f| %>
+  <div class="form-field-container">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-field-container">
+    <%= f.label :kind, 'Type' %>
+    <%= f.select(:kind, Account::KINDS.map { |k| [k, k.downcase] }) %>
+  </div>
+  <%= f.submit 'Update Account', class: 'btn btn-main' %>
+<% end %>

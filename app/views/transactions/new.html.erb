@@ -9,7 +9,7 @@
 <%= form_for [@account, @transaction] do |f| %>
   <div class="form-field-container">
     <%= f.label :kind, 'Type' %>
-    <%= f.select(:kind, Transaction::KINDS.map { |k| [k, k.downcase] }, selected: Transaction::KINDS.first.downcase) %>
+    <%= f.select(:kind, Transaction::KINDS.map { |k| [k, k.downcase] }) %>
   </div>
   <div class="form-field-container">
     <%= f.label :amount %>

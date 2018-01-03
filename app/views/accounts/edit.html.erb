@@ -1,0 +1,9 @@
+<%= render 'shared/content_title', title: "Edit Account: #{@account.name}" %>
+
+<div class="space">
+  <%= link_to "Back to Account", account_path(@account), class: "btn btn-main" %>
+</div>
+
+<%= render 'shared/errors', obj: @account %>
+
+<%= render 'form', account: @account %>

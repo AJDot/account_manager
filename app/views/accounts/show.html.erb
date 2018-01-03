@@ -1,10 +1,10 @@
-<%= render 'shared/content_title', title: @account.name %>
+<%= render 'shared/content_title', title: @account.name, subtitle: "<small>#{@account.kind.capitalize}</small>".html_safe %>
 
 <div class="space">
-  <%= link_to 'Back to All Accounts', accounts_path, class: 'btn btn-main' %>
   <%= link_to 'New Transaction', new_account_transaction_path(@account), class: 'btn btn-main' %>
+  <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn btn-main' %>
+  <%= link_to 'Back to All Accounts', accounts_path, class: 'btn btn-main' %>
 </div>
-
 
 <h3>Transactions</h3>
 <%= render 'shared/table_headings', headings: {'Type' => 3, 'Description' => 2, 'Amount' => 2} %>

@@ -17,8 +17,9 @@
     <div class="col-2-12">
       <%= acc.balance %>
     </div>
-    <div class="col-1-12">
+    <div class="col-2-12">
       <%= link_to 'View', account_path(acc), class: "btn" %>
+      <%= link_to 'Edit', edit_account_path(acc), class: "btn" %>
     </div>
   </div>
 <% end %>
