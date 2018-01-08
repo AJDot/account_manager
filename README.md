@@ -7,8 +7,7 @@ This repository is used to demonstrate (mostly for myself) how to get started wi
 
 ## Todo
 
-1. Write second blog post. Includes writing views to display information and controllers to handle the routes.
+1. Before Actions
 2. Each holder can only see their accounts. Admin user can see everyone's accounts.
+3. Need registration/login, security (password_digest)
 3. Holders can see all information on account and can make transactions (deposit & withdrawal to start).
-4. Make the routes for accounts
-5. Make controller for accounts
