@@ -1,11 +1,12 @@
 class TransactionsController < ApplicationController
+  before_action :set_account, only: [:new, :create, :edit, :update]
+  before_action :set_transaction, only: [:edit, :update]
+
   def new
-    @account = Account.find params[:account_id]
     @transaction = Transaction.new
   end
 
   def create
-    @account = Account.find params[:account_id]
     @transaction = Transaction.new(transaction_params)
     @transaction.account = @account
 
@@ -18,14 +19,9 @@ class TransactionsController < ApplicationController
   end
 
   def edit
-    @account = Account.find params[:account_id]
-    @transaction = Transaction.find params[:id]
   end
 
   def update
-    @account = Account.find params[:account_id]
-    @transaction = Transaction.find params[:id]
-
     if @transaction.update(transaction_params)
       flash[:notice] = "Your transaction was successfully updated."
       redirect_to account_path(@account)
@@ -38,5 +34,13 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     strong_params = params.require(:transaction).permit(:kind, :amount, :description)
+  end
+
+  def set_transaction
+    @transaction = Transaction.find params[:id]
+  end
+
+  def set_account
+    @account = Account.find params[:account_id]
   end
 end

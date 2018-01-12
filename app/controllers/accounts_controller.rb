@@ -1,10 +1,11 @@
 class AccountsController < ApplicationController
+  before_action :set_account, only: [:show, :edit, :update]
+
   def index
     @accounts = Account.all
   end
 
   def show
-    @account = Account.find params[:id]
   end
 
   def new
@@ -23,11 +24,9 @@ class AccountsController < ApplicationController
   end
 
   def edit
-    @account = Account.find params[:id]
   end
 
   def update
-    @account = Account.find params[:id]
     if @account.update(account_params)
       flash[:notice] = "Your account was successfully updated."
       redirect_to account_path(@account)
@@ -40,5 +39,9 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:account).permit(:name, :kind)
+  end
+
+  def set_account
+    @account = Account.find params[:id]
   end
 end
