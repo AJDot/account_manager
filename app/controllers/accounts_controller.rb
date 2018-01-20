@@ -2,7 +2,8 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update]
 
   def index
-    @accounts = Account.all
+    # @accounts = Account.all
+    @accounts = current_holder.accounts
   end
 
   def show
@@ -14,6 +15,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    @account.holders << current_holder
 
     if @account.save
       flash[:notice] = "Your account was created."

@@ -1,0 +1,13 @@
+<%= render 'shared/content_title', title: 'Log in' %>
+
+<%= form_tag do %>
+  <div class="form-field-container">
+    <%= label_tag :name %>
+    <%= text_field_tag :name, params[:name] %>
+  </div>
+  <div class="form-field-container">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+  <%= submit_tag "Login", class: 'btn btn-success' %>
+<% end %>

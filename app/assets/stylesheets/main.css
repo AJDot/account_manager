@@ -159,6 +159,17 @@ BUTTONS
   background-image: linear-gradient(to bottom, #617873, #2f4944);
 }
 
+.btn-success {
+  color: #ffffff;
+  background-color: #67948a;
+  background-image: linear-gradient(to top, #555555, #67948a);
+}
+
+.btn-success:hover {
+  background-color: #2B675A;
+  background-image: linear-gradient(to bottom, #67948a, #2B675A);
+}
+
 /*
 *************************************************
 FLASH MESSAGES
@@ -189,4 +200,59 @@ FLASH MESSAGES
   font-weight: bold;
   line-height: 20px;
   cursor: pointer;
+}
+
+/*
+*************************************************
+TOP NAVIGATION
+*************************************************
+*/
+
+header {
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+  background-color: #dddddd;
+  background-image: linear-gradient(to bottom, #dddddd, #ffffff);
+}
+
+.top-nav .brand {
+  padding: 10px 0;
+  margin: 0 20px;
+  font-size: 1.3em;
+  color: #555555;
+}
+
+.top-nav-inner {
+  padding: 0 20px;
+}
+
+.top-nav > * {
+}
+
+.top-nav ul {
+  list-style: none;
+}
+
+.top-nav .nav-item {
+  display: inline-block;
+  padding: 10px 0;
+  margin: 0 20px 0 0;
+  vertical-align: middle;
+}
+
+.top-nav .nav-item li {
+  float: left;
+  margin: 0 20px;
+}
+
+.top-nav .btn {
+  font-size: .8em;
+}
+
+.top-nav-inner::before,
+.top-nav-inner::after {
+  content: "";
+  display: block;
+  clear: both;
 }

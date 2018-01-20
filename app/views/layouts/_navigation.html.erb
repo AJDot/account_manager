@@ -1,0 +1,22 @@
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <%= link_to "Account Manager", root_path, class: 'nav-item brand' %>
+    <% if logged_in? %>
+      <p class="nav-item"><small>Logged in as <%= current_holder.name %>.</small></p>
+    <% end %>
+    <ul class="nav-item">
+      <% if logged_in? %>
+        <li>
+          <%= link_to "Logout", logout_path, class: 'btn' %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Register", register_path, class: 'btn btn-success' %>
+        </li>
+        <li>
+          <%= link_to "Login", login_path, class: 'btn' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
