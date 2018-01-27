@@ -2,7 +2,6 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update]
 
   def index
-    # @accounts = Account.all
     @accounts = current_holder.accounts
   end
 
