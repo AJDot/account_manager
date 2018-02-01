@@ -1,27 +1,31 @@
-<%= render 'shared/content_title', title: @account.name, subtitle: "<small>#{@account.kind.capitalize}</small>".html_safe %>
+<%= render 'shared/content_title', title: @account.name, subtitle: @account.kind.capitalize %>
 
-<div class="space">
-  <%= link_to 'New Transaction', new_account_transaction_path(@account), class: 'btn btn-main' %>
-  <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn btn-main' %>
-  <%= link_to 'Back to All Accounts', accounts_path, class: 'btn btn-main' %>
+<div class="btn-group" role="group">
+  <%= link_to 'New Transaction', new_account_transaction_path(@account), class: 'btn btn-success' %>
+  <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn btn-primary' %>
+  <%= link_to 'Back to All Accounts', accounts_path, class: 'btn btn-warning' %>
 </div>
 
 <h3>Transactions</h3>
-<%= render 'shared/table_headings', headings: {'Type' => 3, 'Description' => 2, 'Amount' => 2} %>
-
-<% @account.transactions.each do |trans| %>
-  <div class="row">
-    <div class="col-3-12">
-      <%= trans.kind %>
-    </div>
-    <div class="col-2-12">
-      <%= trans.description %>
-    </div>
-    <div class="col-2-12">
-      <%= display_amount(trans.amount) %>
-    </div>
-    <div class="col-1-12">
-      <%= link_to 'Edit', edit_account_transaction_path(@account, trans), class: 'btn' %>
-    </div>
-  </div>
-<% end %>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account.transactions.each do |trans| %>
+      <tr>
+        <td><%= trans.kind %></td>
+        <td><%= trans.kind %></td>
+        <td><%= trans.amount %></td>
+        <td>
+          <%= link_to 'Edit', edit_account_transaction_path(@account, trans), class: "btn btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,11 +1,10 @@
 <% subtitle ||= false %>
 
-<p class='title'>
-  <%= title %>
-</p>
-<% if subtitle %>
-  <p class='subtitle'>
-    <%= subtitle %>
-  </p>
-<% end %>
-<hr />
+<div class='page-header'>
+  <h1>
+    <%= title %>
+    <% if subtitle %>
+      <small><%= subtitle %></small>
+    <% end %>
+  </h1>
+</div>

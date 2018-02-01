@@ -1,11 +1,9 @@
 <% if obj.errors.any? %>
-  <div class="row">
-    <div class="alert alert-error col-12-12">
-      <ul>
-        <% obj.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="alert alert-danger">
+    <ul>
+      <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>

@@ -7,7 +7,7 @@ class HoldersController < ApplicationController
     @holder = Holder.new(holder_params)
 
     if @holder.save
-      sessions[:holder_id] = @holder.id
+      session[:holder_id] = @holder.id
       flash[:notice] = "Your profile was created."
       redirect_to holder_path(@holder)
     else

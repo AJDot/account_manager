@@ -1,11 +1,11 @@
 <%= form_for account do |f| %>
-  <div class="form-field-container">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="form-field-container">
+  <div class="form-group">
     <%= f.label :kind, 'Type' %>
-    <%= f.select(:kind, Account::KINDS.map { |k| [k, k.downcase] }) %>
+    <%= f.select(:kind, Account::KINDS.map { |k| [k, k.downcase] }, {}, { class: 'form-control' }) %>
   </div>
-  <%= f.submit((account.new_record? ? 'Create' : 'Update') + ' Account' , class: 'btn btn-main') %>
+  <%= f.submit((account.new_record? ? 'Create' : 'Update') + ' Account' , class: 'btn btn-success') %>
 <% end %>

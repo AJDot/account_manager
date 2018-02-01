@@ -1,7 +1,7 @@
 <%= render 'shared/content_title', title: 'Edit Transaction' %>
 
-<div class="space">
-  <%= link_to "Back to Account", account_path(@account), class: "btn btn-main" %>
+<div class="btn-group">
+  <%= link_to "Back to Account", account_path(@account), class: "btn btn-warning" %>
 </div>
 
 <%= render 'shared/errors', obj: @transaction %>

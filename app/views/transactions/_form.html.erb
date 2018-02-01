@@ -1,15 +1,15 @@
 <%= form_for [account, transaction] do |f| %>
-  <div class="form-field-container">
+  <div class="form-group">
     <%= f.label :kind, 'Type' %>
-    <%= f.select(:kind, Transaction::KINDS.map { |k| [k, k.downcase] }) %>
+    <%= f.select(:kind, Transaction::KINDS.map { |k| [k, k.downcase] }, {}, { class: 'form-control' }) %>
   </div>
-  <div class="form-field-container">
+  <div class="form-group">
     <%= f.label :amount %>
-    <%= f.text_field :amount, value: display_amount(transaction.amount) %>
+    <%= f.text_field :amount, value: display_amount(transaction.amount), class: 'form-control' %>
   </div>
-  <div class="form-field-container">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
-  <%= f.submit((transaction.new_record? ? 'Create' : 'Update') + ' Transaction', class: 'btn btn-main') %>
+  <%= f.submit((transaction.new_record? ? 'Create' : 'Update') + ' Transaction', class: 'btn btn-success') %>
 <% end %>
